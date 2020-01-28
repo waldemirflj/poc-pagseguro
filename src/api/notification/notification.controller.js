@@ -7,17 +7,29 @@ const {
   PAG_EMAIL,
   PAG_TOKEN } = require('../../config/environments')
 
-class NotificarionController {
+const enumStatus = {
+  1: 'aguardando pagamento',
+  2: 'em análise',
+  3: 'paga',
+  4: 'disponível',
+  5: 'em disputa',
+  6: 'devolvida',
+  7: 'cancelada',
+  8: 'debitado',
+  9: 'retenção temporária'
+}
+
+class NotificationController {
   async store (req, res) {
-    console.info('notificação')
-    console.info(req.query)
+    const { notificationCode, notificationType } = req.body
 
-    res.status(200)
-      .json({  })
-  }
+    console.info('---')
+    console.info('Notification')
 
-  async index (req, res) {
-    const { notificationCode } = req.params
+    if (!notificationCode || notificationType !== 'transaction') {
+      console.info('body without content')
+      return res.status(400)
+    }
 
     const queryParams = qs.stringify({
       email: PAG_EMAIL,
@@ -29,15 +41,20 @@ class NotificarionController {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     })
 
-    const { transaction: { code, status }} = JSON.parse(xml2json.toJson(resp))
+    const { transaction: { date, code, status, reference }} = JSON.parse(xml2json.toJson(resp))
 
-    res.status(200)
-      .json({
-        code,
-        status,
-        notificationCode
-      })
+    if (!date, !code, !status, !reference) {
+      console.info('transaction not found')
+      return res.status(404)
+    }
+
+    console.info(JSON.stringify({
+      date,
+      code,
+      status: enumStatus[status],
+      reference
+    }))
   }
 }
 
-module.exports = new NotificarionController()
+module.exports = new NotificationController()
