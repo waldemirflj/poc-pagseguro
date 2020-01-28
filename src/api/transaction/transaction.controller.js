@@ -5,7 +5,9 @@ const xml2json = require('xml2json')
 const {
   PAG_WS,
   PAG_EMAIL,
-  PAG_TOKEN } = require('../../config/environments')
+  PAG_TOKEN,
+  PAG_NOTIFICATION
+} = require('../../config/environments')
 
 const paymentDTO = ({ body }) => {
   const {
@@ -58,7 +60,7 @@ const paymentDTO = ({ body }) => {
     senderEmail,
     senderHash,
     shippingAddressRequired: false,
-    notificationURL: 'http://localhost:3000/api/notification'
+    notificationURL: PAG_NOTIFICATION
   }
 
   if (type === 1) {
