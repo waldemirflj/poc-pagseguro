@@ -1,0 +1,38 @@
+<script type="text/x-handlebars-template" id="entry-template-containerBoleto">
+  {{#if error}}
+    <p class="m-0"><b>Message</b>: {{ message }}</p>
+  {{else}}
+    <div class="row">
+      <div class="col-12">
+        <div class="form-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="*E-mail" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputName" placeholder="*Nome" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputCPF" placeholder="*CPF" value="">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputDD" placeholder="*DD" value="">
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputTelefone" placeholder="*Telefone" value="">
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" id="btnPaymentByBoleto">
+          Gerar Boleto
+        </button>
+      </div>
+    </div>
+  {{/if}}
+</script>

@@ -1,0 +1,19 @@
+<script type="text/x-handlebars-template" id="entry-template-containerCartaoDeCreditoFallback">
+  {{#if error}}
+    {{#each errors}}
+      <p class="m-0">
+        <b>Code</b>: {{ code }} <b>Message</b>: {{ message }}
+      </p>
+    {{/each}}
+  {{else}}
+    <p class="m-0">
+      <b>Data</b>: {{ date }}
+    </p>
+    <p class="m-0">
+      <b>Status</b>: {{ status }}
+    </p>
+    <p class="m-0">
+      <b>Transacão</b>: {{ code }}
+    </p>
+  {{/if}}
+</script>

@@ -1,0 +1,108 @@
+<script type="text/x-handlebars-template" id="entry-template-containerCartaoDeCredito">
+  {{#if error}}
+    <p>{{ message }}</p>
+  {{else}}
+    <div class="row">
+      <!-- cartao de credito -->
+      <div class="col-5">
+        <div class="form-group">
+          <select class="form-control" id="inputBrand">
+            {{#each data}}
+              <option value="{{ name }}">{{ displayName }}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <div class="col-7">
+        <div class="form-group">
+          <input type="email" class="form-control" id="inputCardNumber" placeholder="*Número do cartão" value="">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputExpirationMonth" placeholder="*Mês" value="">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputExpirationYear" placeholder="*Ano" value="">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputCVV" placeholder="*CVV" value="">
+        </div>
+      </div>
+
+      <!-- pessoa -->
+      <div class="col-12">
+        <div class="form-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="*E-mail" value="">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputName" placeholder="*Nome" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputCPF" placeholder="*CPF" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputDataDeNascimento" placeholder="*Dta. Nasc." value="">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputDD" placeholder="*DD" value="">
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputTelefone" placeholder="*Telefone" value="">
+        </div>
+      </div>
+
+      <!-- endereço -->
+      <div class="col-9">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputEndereco" placeholder="*Endereço" value="">
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputNumero" placeholder="*Nº" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputBairro" placeholder="*Bairro" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputCEP" placeholder="*CEP" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputCidade" placeholder="*Cidade" value="">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" class="form-control" id="inputEstado" placeholder="*Estado" value="">
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button class="btn btn-primary" id="btnPaymentByCreditCard">
+          Pagar
+        </button>
+      </div>
+    </div>
+  {{/if}}
+</script>

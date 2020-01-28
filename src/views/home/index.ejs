@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagseguro</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+
+  <body id="body" class="container-fluid" data-session="<%= session %>" data-amount="<%= amount %>">
+    <img src="/assets/images/pagseguro.gif" alt="Pagseguro" class="d-block mt-4 mb-4" style="width: 200px;">
+
+    <ul class="list-unstyled">
+      <li>
+        <b>Id</b>: <%= session %>
+      </li>
+      <li>
+        <b>Valor</b>: $ <%= amount %>
+      </li>
+      <li>
+        <b>Produto</b>: Compta de teste
+      </li>
+    </ul>
+
+    <div class="row">
+      <div class="col-3">
+        <div class="row">
+          <div class="col-12">
+            <button class="btn btn-segundary" id="btnBoleto">
+              Boleto
+            </button>
+            <button class="btn btn-segundary" id="btnCreditCard">
+              Cartão de crédito
+            </button>
+          </div>
+
+          <div class="col-12 pt-3">
+            <div id="container"></div>
+            <div id="fallback"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scripts: pagseguro -->
+    <% if (prod) { %>
+      <script src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <% } else { %>
+      <script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <% } %>
+
+    <!-- scripts: app -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.min.js"></script>
+    <script src="/assets/scripts/main.js"></script>
+
+    <!-- handlebars: partials/templates -->
+    <%- include('../partials/templates/entry-template-containerBoleto.ejs') %>
+    <%- include('../partials/templates/entry-template-containerBoletoFallback.ejs') %>
+
+    <%- include('../partials/templates/entry-template-containerCartaoDeCredito.ejs') %>
+    <%- include('../partials/templates/entry-template-containerCartaoDeCreditoFallback.ejs') %>
+  </body>
+</html>

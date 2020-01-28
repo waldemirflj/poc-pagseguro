@@ -1,0 +1,25 @@
+{
+  "name": "poc-pagseguro",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --config ./nodemon.json --legacy-watch ./index.js",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "Waldemir Francisco <waldemirflj@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "qs": "^6.9.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "xml2json": "^0.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
